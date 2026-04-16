@@ -5,12 +5,8 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CayCanhController;
 
-Route::get('/', [HomeController::class, 'index']);
 
 require __DIR__.'/auth.php';
-Route::get('/dashboard', function () {
-    //return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Nguyen Trong Minh
 Route::get('/{id_danh_muc?}', [HomeController::class, 'index'])->name('index');
@@ -18,7 +14,7 @@ Route::get('/caycanh/theloai/{id}', [HomeController::class, 'theloai'])->name('t
 Route::post('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
 Route::get('/caycanh/{id}', [HomeController::class, 'chitietsanpham'])->name('chitietsanpham');
 Route::post('/cart/add', [HomeController::class, 'addToCart'])->name('cart.add');
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 // Nguyen Thi Nhu
 Route::get('/gio-hang', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/xoa-gio-hang', [CartController::class, 'removeFromCart'])->name('cart.remove');

@@ -1,5 +1,3 @@
-
-
 <x-cay-canh-layout>
     <x-slot name="title">Giỏ hàng</x-slot>
 
