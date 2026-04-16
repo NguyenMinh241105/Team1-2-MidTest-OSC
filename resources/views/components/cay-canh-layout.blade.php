@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{$title}}</title>
+    <title>{{ $title ?? 'Cây Cảnh Store' }}</title>
     <link rel="stylesheet" href="{{asset('library/bootstrap.min.css')}}">
 
     <script src="{{asset('library/jquery.slim.min.js')}}"></script>
@@ -27,9 +27,7 @@
 
         .container {
             max-width: 1000px;
-            /* Chiều rộng tối đa của nội dung */
             margin: 0 auto;
-            /* Căn giữa nội dung */
             padding: 0 15px;
         }
 
@@ -48,7 +46,6 @@
 
         .search-bar {
             flex: 1;
-            /* Chiếm không gian còn lại */
             max-width: 500px;
             margin: 0 10px;
 
@@ -158,9 +155,9 @@
                         <div class="dropdown">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                 {{ Auth::user()->name }}
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="">Quản lý</a>
+                                </button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('admin.products') }}">Quản lý</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <a class="dropdown-item" onclick="event.preventDefault();
