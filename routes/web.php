@@ -8,13 +8,6 @@ use App\Http\Controllers\CayCanhController;
 
 require __DIR__.'/auth.php';
 
-// Nguyen Trong Minh
-Route::get('/{id_danh_muc?}', [HomeController::class, 'index'])->name('index');
-Route::get('/caycanh/theloai/{id}', [HomeController::class, 'theloai'])->name('theloai');
-Route::post('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
-Route::get('/caycanh/{id}', [HomeController::class, 'chitietsanpham'])->name('chitietsanpham');
-Route::post('/cart/add', [HomeController::class, 'addToCart'])->name('cart.add');
-Route::get('/', [HomeController::class, 'index'])->name('index');
 // Nguyen Thi Nhu
 Route::get('/gio-hang', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/xoa-gio-hang', [CartController::class, 'removeFromCart'])->name('cart.remove');
@@ -23,6 +16,13 @@ Route::post('/dat-hang', [CartController::class, 'checkout'])
     ->name('cart.checkout');
 Route::post('/order/create','App\Http\Controllers\CartController@ordercreate')
 ->middleware('auth')->name('ordercreate');
+// Nguyen Trong Minh
+Route::get('/{id_danh_muc?}', [HomeController::class, 'index'])->name('index');
+Route::get('/caycanh/theloai/{id}', [HomeController::class, 'theloai'])->name('theloai');
+Route::post('/timkiem', [HomeController::class, 'timkiem'])->name('timkiem');
+Route::get('/caycanh/{id}', [HomeController::class, 'chitietsanpham'])->name('chitietsanpham');
+Route::post('/cart/add', [HomeController::class, 'addToCart'])->name('cart.add');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 // Huynh Thi Thanh Ngoc
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/products', [ProductController::class, 'adminIndex'])->name('admin.products');

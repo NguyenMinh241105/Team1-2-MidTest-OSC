@@ -145,7 +145,7 @@
                             0
                             @endif
                         </div>
-                        <a href="{{url('/gio-hang')}}" style='cursor:pointer;color: #2f5d3a;;'>
+                        <a href="{{route('cart.view')}}" style='cursor:pointer;color: #2f5d3a;;'>
                             <i class="fa fa-cart-arrow-down fa-2x mr-2 mt-1" aria-hidden="true"></i>
                         </a>
                     </div>
